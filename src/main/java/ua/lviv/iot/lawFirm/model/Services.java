@@ -1,0 +1,5 @@
+package ua.lviv.iot.lawFirm.model;
+
+public enum Services {
+	ADVICE, COLLECTINGEVIDENCE, DRAFTINGACLAIM, SIGNINGACONTRACT, REPRESENTATIONINCOURT;
+}
