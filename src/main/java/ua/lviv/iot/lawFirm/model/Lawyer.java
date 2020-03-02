@@ -1,25 +1,26 @@
 package ua.lviv.iot.lawFirm.model;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import ua.lviv.iot.lawFirm.manager.LawFirmManager;
 
 public class Lawyer extends AbstractServices {
 
-	private static int numbersOfLawyers;
-	private int id;
+	private static int numbersOfLawyers = 0;
+	private int id = 0;
 
 	private String name;
 
 	private double pricePerHourInUAH;
 
-	protected List<Services> services;
+	protected List<Services> services = new LinkedList<>();
 
 	private int age;
 
 	LawFirmManager manager = new LawFirmManager();
 
-	public Lawyer(String name, double pricePerHourInUAH, int age, Boolean CollectingEvidence, Boolean Advice) {
+	public Lawyer(String name, double pricePerHourInUAH, int age, boolean CollectingEvidence, boolean Advice) {
 
 		this.name = name;
 		this.pricePerHourInUAH = pricePerHourInUAH;
