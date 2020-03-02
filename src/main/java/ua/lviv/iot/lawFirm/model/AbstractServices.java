@@ -11,30 +11,23 @@ public abstract class AbstractServices {
 	private Boolean collectingEvidence;
 
 	public void draftingAClaim() {
-		System.out.println("You are enrolled for the service, wait...");
+
 	}
 
 	public void signingAContract() {
-		System.out.println("You are enrolled for the service, wait...");
+
 	}
 
 	public void represetationInCourt() {
-		System.out.println("You are enrolled for the service, wait...");
+
 	}
 
 	public void advice() {
-		if (advice == true) {
-			System.out.println("You are enrolled for the service, wait...");
-		} else
-			System.out.println("Sorry, but the lawyer does not provide this service.");
+
 	}
 
 	protected void collectingEvidence() {
-		
-		if (collectingEvidence == true) {
-			System.out.println("You are enrolled for the service, wait...");
-		} else
-			System.out.println("Sorry, but the lawyer does not provide this service.");
+
 	}
 
 	public int getDuration() {
