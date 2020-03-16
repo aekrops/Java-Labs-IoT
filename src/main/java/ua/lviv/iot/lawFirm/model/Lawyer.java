@@ -17,12 +17,15 @@ public class Lawyer extends AbstractServices {
 	protected List<Services> services = new LinkedList<>();
 
 	private int age;
+	private int numberOfServices = 3;
+	private int lengthOfName;
 
 	LawFirmManager manager = new LawFirmManager();
 
 	public Lawyer(String name, double pricePerHourInUAH, int age, boolean CollectingEvidence, boolean Advice) {
 
 		this.name = name;
+		this.lengthOfName = name.length();
 		this.pricePerHourInUAH = pricePerHourInUAH;
 		this.age = age;
 		numbersOfLawyers++;
@@ -36,7 +39,22 @@ public class Lawyer extends AbstractServices {
 			services.add(Services.ADVICE);
 		} else {
 		}
+
+		if (Advice == true) {
+			numberOfServices++;
+		}
+		if (CollectingEvidence == true) {
+			numberOfServices++;
+		}
 		manager.addLawyers(this);
+	}
+
+	public int getLengthOfName() {
+		return lengthOfName;
+	}
+
+	public void setLengthOfName(int lengthOfName) {
+		this.lengthOfName = lengthOfName;
 	}
 
 	public Lawyer(String name, double pricePerHourInUAH) {
@@ -89,5 +107,9 @@ public class Lawyer extends AbstractServices {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getNumberOfServices() {
+		return numberOfServices;
 	}
 }
