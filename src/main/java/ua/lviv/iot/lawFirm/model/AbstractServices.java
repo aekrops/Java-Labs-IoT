@@ -10,6 +10,10 @@ public abstract class AbstractServices {
 	private Boolean advice;
 	private Boolean collectingEvidence;
 
+	public void numberOfServices() {
+
+	}
+
 	public void draftingAClaim() {
 
 	}
