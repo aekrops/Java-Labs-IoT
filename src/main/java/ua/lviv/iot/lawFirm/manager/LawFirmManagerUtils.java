@@ -47,7 +47,9 @@ public class LawFirmManagerUtils {
 	}
 
 	// inner class
-	class LawyersSorterByPricePerHourInUAH implements Comparator<Lawyer> {
+	static class LawyersSorterByPricePerHourInUAH implements Comparator<Lawyer>, Serializable {
+
+		private static final long serialVersionUID = 1L;
 
 		@Override
 		public int compare(Lawyer firstLawyer, Lawyer secondLawyer) {
@@ -55,7 +57,9 @@ public class LawFirmManagerUtils {
 		}
 	}
 
-	static class LawyersSorterByNumberOfServices implements Comparator<Lawyer> {
+	static class LawyersSorterByNumberOfServices implements Comparator<Lawyer>, Serializable {
+
+		private static final long serialVersionUID = 1L;
 
 		@Override
 		public int compare(Lawyer firstLawyer, Lawyer secondLawyer) {

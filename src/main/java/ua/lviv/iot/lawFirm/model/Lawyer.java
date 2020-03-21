@@ -2,13 +2,15 @@ package ua.lviv.iot.lawFirm.model;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import ua.lviv.iot.lawFirm.manager.LawFirmManager;
 
 public class Lawyer extends AbstractServices {
 
-	private static int numbersOfLawyers = 0;
-	private int id = 0;
+	private static AtomicInteger numbersOfLawyers = new AtomicInteger(0);
+	
+	private AtomicInteger id = new AtomicInteger(0);
 
 	private String name;
 
@@ -28,7 +30,7 @@ public class Lawyer extends AbstractServices {
 		this.lengthOfName = name.length();
 		this.pricePerHourInUAH = pricePerHourInUAH;
 		this.age = age;
-		numbersOfLawyers++;
+		numbersOfLawyers.incrementAndGet();
 		id = numbersOfLawyers;
 
 		if (CollectingEvidence == true) {
@@ -70,7 +72,6 @@ public class Lawyer extends AbstractServices {
 	}
 
 	public Lawyer() {
-		this(null, 0.0, 0, false, false);
 	}
 
 	public String getHeaders() {
@@ -115,11 +116,11 @@ public class Lawyer extends AbstractServices {
 		this.age = age;
 	}
 
-	public int getId() {
+	public AtomicInteger getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(AtomicInteger id) {
 		this.id = id;
 	}
 
