@@ -10,6 +10,16 @@ public abstract class AbstractServices {
 	private Boolean advice;
 	private Boolean collectingEvidence;
 
+	public String getHeaders() {
+		return "drafting a claim" + "," + "signing a contract" + ","
+	+ "representationInCourt" + "," + "advice" + "," + "collecting evidence";
+	}
+
+	public String toCSV() {
+		return getDraftingAClaim() + "," + getSigningAContract() + "," 
+	+ getRepresentationInCourt() + "," + getAdvice() + "," + getCollectingEvidence();
+	}
+
 	public void numberOfServices() {
 
 	}
