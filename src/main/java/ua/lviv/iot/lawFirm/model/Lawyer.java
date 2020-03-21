@@ -75,13 +75,13 @@ public class Lawyer extends AbstractServices {
 	}
 
 	public String getHeaders() {
-		return super.getHeaders() + "," + "name" + "," + 
-	"price per hour in hryvna" + "," + "age";
+		return "name" + "," + "price per hour in hryvna" + "," 
+				+ "age" + "," + super.getHeaders();
 	}
 
 	public String toCSV() {
-		return super.toCSV() + "," + getName() + "," + 
-	getPricePerHourInUAH() + "," + getAge();
+		return getName() + "," + getPricePerHourInUAH() + ","
+				+ getAge() + "," + super.toCSV();
 	}
 
 	public String getName() {
