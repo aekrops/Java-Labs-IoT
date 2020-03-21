@@ -1,5 +1,5 @@
-drafting a claim,signing a contract,representationInCourt,advice,collecting evidence,name,price per hour in hryvna,age
-true,true,true,true,true,Max,500.0,27
-true,true,true,false,true,Roman,450.0,25
-true,true,true,true,false,Petro,350.0,23
-true,true,true,false,false,Sebastian,300.0,24
+name,price per hour in hryvna,age,drafting a claim,signing a contract,representationInCourt,advice,collecting evidence
+Max,500.0,27,true,true,true,true,true
+Roman,450.0,25,true,true,true,false,true
+Petro,350.0,23,true,true,true,true,false
+Sebastian,300.0,24,true,true,true,false,false
