@@ -33,11 +33,15 @@ public class Lawyer extends AbstractServices {
 
 		if (CollectingEvidence == true) {
 			services.add(Services.COLLECTINGEVIDENCE);
+			super.setCollectingEvidence(true);
 		} else {
+			super.setCollectingEvidence(false);
 		}
 		if (Advice == true) {
 			services.add(Services.ADVICE);
+			super.setAdvice(true);
 		} else {
+			super.setAdvice(false);
 		}
 
 		if (Advice == true) {
@@ -67,6 +71,16 @@ public class Lawyer extends AbstractServices {
 
 	public Lawyer() {
 		this(null, 0.0, 0, false, false);
+	}
+
+	public String getHeaders() {
+		return super.getHeaders() + "," + "name" + "," + 
+	"price per hour in hryvna" + "," + "age";
+	}
+
+	public String toCSV() {
+		return super.toCSV() + "," + getName() + "," + 
+	getPricePerHourInUAH() + "," + getAge();
 	}
 
 	public String getName() {
