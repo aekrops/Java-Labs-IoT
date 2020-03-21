@@ -40,7 +40,7 @@ public abstract class AbstractServices {
 
 	}
 
-	protected void collectingEvidence() {
+	public void collectingEvidence() {
 
 	}
 
