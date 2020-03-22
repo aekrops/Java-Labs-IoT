@@ -10,7 +10,7 @@ public class Lawyer extends AbstractServices {
 
 	private static AtomicInteger numbersOfLawyers = new AtomicInteger(0);
 	
-	private AtomicInteger id = new AtomicInteger(0);
+	private int id = 0;
 
 	private String name;
 
@@ -30,8 +30,6 @@ public class Lawyer extends AbstractServices {
 		this.lengthOfName = name.length();
 		this.pricePerHourInUAH = pricePerHourInUAH;
 		this.age = age;
-		numbersOfLawyers.incrementAndGet();
-		id = numbersOfLawyers;
 
 		if (CollectingEvidence == true) {
 			services.add(Services.COLLECTINGEVIDENCE);
@@ -52,6 +50,10 @@ public class Lawyer extends AbstractServices {
 		if (CollectingEvidence == true) {
 			numberOfServices++;
 		}
+		
+		numbersOfLawyers.incrementAndGet();
+		id = numbersOfLawyers.get();
+		
 		manager.addLawyers(this);
 	}
 
@@ -72,6 +74,8 @@ public class Lawyer extends AbstractServices {
 	}
 
 	public Lawyer() {
+		numbersOfLawyers.incrementAndGet();
+		id = numbersOfLawyers.get();
 	}
 
 	public String getHeaders() {
@@ -116,11 +120,11 @@ public class Lawyer extends AbstractServices {
 		this.age = age;
 	}
 
-	public AtomicInteger getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(AtomicInteger id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
