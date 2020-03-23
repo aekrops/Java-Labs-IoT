@@ -8,127 +8,125 @@ import ua.lviv.iot.lawFirm.manager.LawFirmManager;
 
 public class Lawyer extends AbstractServices {
 
-	private static AtomicInteger numbersOfLawyers = new AtomicInteger(0);
-	
-	private int id = 0;
+    private static AtomicInteger numbersOfLawyers = new AtomicInteger(0);
 
-	private String name;
+    private int id = 0;
 
-	private double pricePerHourInUAH;
+    private String name;
 
-	protected List<Services> services = new LinkedList<>();
+    private double pricePerHourInUAH;
 
-	private int age;
-	private int numberOfServices = 3;
-	private int lengthOfName;
+    protected List<Services> services = new LinkedList<>();
 
-	LawFirmManager manager = new LawFirmManager();
+    private int age;
+    private int numberOfServices = 3;
+    private int lengthOfName;
 
-	public Lawyer(String name, double pricePerHourInUAH, int age, boolean CollectingEvidence, boolean Advice) {
+    LawFirmManager manager = new LawFirmManager();
 
-		this.name = name;
-		this.lengthOfName = name.length();
-		this.pricePerHourInUAH = pricePerHourInUAH;
-		this.age = age;
+    public Lawyer(String name, double pricePerHourInUAH, int age, boolean isCollectingEvidence, boolean isAdvice) {
 
-		if (CollectingEvidence == true) {
-			services.add(Services.COLLECTINGEVIDENCE);
-			super.setCollectingEvidence(true);
-		} else {
-			super.setCollectingEvidence(false);
-		}
-		if (Advice == true) {
-			services.add(Services.ADVICE);
-			super.setAdvice(true);
-		} else {
-			super.setAdvice(false);
-		}
+        this.name = name;
+        this.lengthOfName = name.length();
+        this.pricePerHourInUAH = pricePerHourInUAH;
+        this.age = age;
 
-		if (Advice == true) {
-			numberOfServices++;
-		}
-		if (CollectingEvidence == true) {
-			numberOfServices++;
-		}
-		
-		numbersOfLawyers.incrementAndGet();
-		id = numbersOfLawyers.get();
-		
-		manager.addLawyers(this);
-	}
+        if (isCollectingEvidence) {
+            services.add(Services.COLLECTINGEVIDENCE);
+            super.setCollectingEvidence(true);
+        } else {
+            super.setCollectingEvidence(false);
+        }
+        if (isAdvice) {
+            services.add(Services.ADVICE);
+            super.setAdvice(true);
+        } else {
+            super.setAdvice(false);
+        }
 
-	public int getLengthOfName() {
-		return lengthOfName;
-	}
+        if (isAdvice) {
+            numberOfServices++;
+        }
+        if (isCollectingEvidence) {
+            numberOfServices++;
+        }
 
-	public void setLengthOfName(int lengthOfName) {
-		this.lengthOfName = lengthOfName;
-	}
+        numbersOfLawyers.incrementAndGet();
+        id = numbersOfLawyers.get();
 
-	public Lawyer(String name, double pricePerHourInUAH) {
-		this(name, pricePerHourInUAH, 0, false, false);
-	}
+        manager.addLawyers(this);
+    }
 
-	public Lawyer(String name) {
-		this(name, 0.0, 0, false, false);
-	}
+    public int getLengthOfName() {
+        return lengthOfName;
+    }
 
-	public Lawyer() {
-		numbersOfLawyers.incrementAndGet();
-		id = numbersOfLawyers.get();
-	}
+    public void setLengthOfName(int lengthOfName) {
+        this.lengthOfName = lengthOfName;
+    }
 
-	public String getHeaders() {
-		return "name" + "," + "price per hour in hryvna" + "," 
-				+ "age" + "," + super.getHeaders();
-	}
+    public Lawyer(String name, double pricePerHourInUAH) {
+        this(name, pricePerHourInUAH, 0, false, false);
+    }
 
-	public String toCSV() {
-		return getName() + "," + getPricePerHourInUAH() + ","
-				+ getAge() + "," + super.toCSV();
-	}
+    public Lawyer(String name) {
+        this(name, 0.0, 0, false, false);
+    }
 
-	public String getName() {
-		return name;
-	}
+    public Lawyer() {
+        numbersOfLawyers.incrementAndGet();
+        id = numbersOfLawyers.get();
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getHeaders() {
+        return "name" + "," + "price per hour in hryvna" + "," + "age" + "," + super.getHeaders();
+    }
 
-	public double getPricePerHourInUAH() {
-		return pricePerHourInUAH;
-	}
+    public String toCSV() {
+        return getName() + "," + getPricePerHourInUAH() + "," + getAge() + "," + super.toCSV();
+    }
 
-	public void setPricePerHourInUAH(double pricePerHourInUAH) {
-		this.pricePerHourInUAH = pricePerHourInUAH;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public List<Services> getServices() {
-		return services;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setServices(List<Services> services) {
-		this.services = services;
-	}
+    public double getPricePerHourInUAH() {
+        return pricePerHourInUAH;
+    }
 
-	public int getAge() {
-		return age;
-	}
+    public void setPricePerHourInUAH(double pricePerHourInUAH) {
+        this.pricePerHourInUAH = pricePerHourInUAH;
+    }
 
-	public void setAge(int age) {
-		this.age = age;
-	}
+    public List<Services> getServices() {
+        return services;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public void setServices(List<Services> services) {
+        this.services = services;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getAge() {
+        return age;
+    }
 
-	public int getNumberOfServices() {
-		return numberOfServices;
-	}
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getNumberOfServices() {
+        return numberOfServices;
+    }
 }
