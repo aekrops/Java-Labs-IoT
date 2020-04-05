@@ -4,3 +4,4 @@
  - lab 4
  - lab 5
  - lab 7
+ - lab 8
