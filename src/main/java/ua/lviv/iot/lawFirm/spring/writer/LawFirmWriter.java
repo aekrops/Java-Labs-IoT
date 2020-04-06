@@ -1,11 +1,12 @@
-package ua.lviv.iot.lawFirm.writer;
+package ua.lviv.iot.lawFirm.spring.writer;
 
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.List;
 
-import ua.lviv.iot.lawFirm.model.Lawyer;
+import ua.lviv.iot.lawFirm.spring.model.Lawyer;
+
 
 public class LawFirmWriter {
 

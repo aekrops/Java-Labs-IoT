@@ -1,13 +1,12 @@
-package ua.lviv.iot.lawFirm.manager;
+package ua.lviv.iot.lawFirm.spring.manager;
 
 import java.io.Serializable;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-import ua.lviv.iot.lawFirm.model.AbstractServices;
-import ua.lviv.iot.lawFirm.model.Lawyer;
-import ua.lviv.iot.lawFirm.model.SortType;
+import ua.lviv.iot.lawFirm.spring.model.Lawyer;
+import ua.lviv.iot.lawFirm.spring.model.SortType;
+
 
 public class LawFirmManagerUtils {
 

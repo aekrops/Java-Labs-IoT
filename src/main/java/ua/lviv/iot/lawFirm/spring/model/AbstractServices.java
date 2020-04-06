@@ -1,5 +1,8 @@
-package ua.lviv.iot.lawFirm.model;
+package ua.lviv.iot.lawFirm.spring.model;
 
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public abstract class AbstractServices {
 
     protected int duration;

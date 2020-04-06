@@ -1,10 +1,11 @@
-package ua.lviv.iot.lawFirm.manager;
+package ua.lviv.iot.lawFirm.spring.manager;
 
 import java.util.LinkedList;
 import java.util.List;
 
-import ua.lviv.iot.lawFirm.model.Lawyer;
-import ua.lviv.iot.lawFirm.model.Services;
+import ua.lviv.iot.lawFirm.spring.model.Lawyer;
+import ua.lviv.iot.lawFirm.spring.model.Services;
+
 
 public class LawFirmManager {
     protected List<Lawyer> lawyers = new LinkedList<>();

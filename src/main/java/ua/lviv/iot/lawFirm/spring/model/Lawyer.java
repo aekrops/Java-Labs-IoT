@@ -1,27 +1,33 @@
-package ua.lviv.iot.lawFirm.model;
+package ua.lviv.iot.lawFirm.spring.model;
 
+import ua.lviv.iot.lawFirm.spring.manager.LawFirmManager;
+
+import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import ua.lviv.iot.lawFirm.manager.LawFirmManager;
-
+@Entity
 public class Lawyer extends AbstractServices {
 
     private static AtomicInteger numbersOfLawyers = new AtomicInteger(0);
 
-    private int id = 0;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
     private String name;
 
     private double pricePerHourInUAH;
 
+    @Transient
     protected List<Services> services = new LinkedList<>();
 
     private int age;
     private int numberOfServices = 3;
     private int lengthOfName;
-
+    @Transient
     LawFirmManager manager = new LawFirmManager();
 
     public Lawyer(String name, double pricePerHourInUAH, int age, boolean isCollectingEvidence, boolean isAdvice) {
