@@ -1,5 +1,7 @@
 package ua.lviv.iot.lawFirm.business;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.lviv.iot.lawFirm.dataaccess.LawyersRepository;
@@ -26,7 +28,7 @@ public class LawyersService {
         return lawyerRepository.save(lawyer);
     }
 
-//    public List<Lawyer> findAll() {
-//        return lawyerRepository.findAll();
-//    }
+    public List<Lawyer> findAll() {
+        return lawyerRepository.findAll();
+    }
 }
