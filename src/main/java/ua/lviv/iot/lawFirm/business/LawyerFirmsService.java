@@ -17,7 +17,7 @@ public class LawyerFirmsService {
     public List<LawyerFirm> getAllFirms() {
         return lawyerFirmsRepository.findAll();
     }
-    
+
     public LawyerFirm getFirmById(Integer firmId) {
         try {
             return lawyerFirmsRepository.findById(firmId).get();
@@ -25,18 +25,22 @@ public class LawyerFirmsService {
             return null;
         }
     }
-    
+
     public LawyerFirm createFirm(LawyerFirm firm) {
         return lawyerFirmsRepository.save(firm);
     }
-    
+
     public LawyerFirm updateFirm(Integer firmId, LawyerFirm firm) {
         firm.setId(firmId);
         return lawyerFirmsRepository.save(firm);
     }
-    
+
     public void deleteFirm(Integer firmId) {
         lawyerFirmsRepository.deleteById(firmId);
     }
-    
+
+    public boolean firmExists(Integer firmId) {
+        return lawyerFirmsRepository.existsById(firmId);
+    }
+
 }

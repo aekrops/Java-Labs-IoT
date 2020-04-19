@@ -7,9 +7,6 @@ import org.springframework.stereotype.Service;
 import ua.lviv.iot.lawFirm.dataaccess.LawyersRepository;
 import ua.lviv.iot.lawFirm.spring.model.Lawyer;
 
-
-
-
 @Service
 public class LawyersService {
     @Autowired
@@ -22,6 +19,11 @@ public class LawyersService {
     public void deleteLawyer(Integer id) {
         lawyerRepository.deleteById(id);
     }
+
+    public boolean lawyerExists(Integer id) {
+        return lawyerRepository.existsById(id);
+    }
+
     public Lawyer updateLawyer(Integer id, Lawyer newLawyer) {
         Lawyer lawyer = lawyerRepository.getOne(id);
         lawyer = newLawyer;
