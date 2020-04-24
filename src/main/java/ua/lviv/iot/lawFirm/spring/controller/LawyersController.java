@@ -9,7 +9,6 @@ import ua.lviv.iot.lawFirm.business.LawyersService;
 import ua.lviv.iot.lawFirm.spring.model.Lawyer;
 
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -26,7 +25,7 @@ public class LawyersController {
 
     @GetMapping
     public List<Lawyer> getAllLawyers() {
-        return new LinkedList<>(lawyers.values());
+        return lawyersService.findAll();
     }
 
     @GetMapping(path = "/{id}")
@@ -44,9 +43,16 @@ public class LawyersController {
 
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<Lawyer> deleteLawyer(@PathVariable("id") Integer lawyerId) {
-        HttpStatus status = lawyers.remove(lawyerId) == null ? HttpStatus.NOT_FOUND : HttpStatus.OK;
-        lawyersService.deleteLawyer(lawyerId);
-        return ResponseEntity.status(status).build();
+        if(lawyersService.lawyerExists(lawyerId)) {
+            lawyersService.deleteLawyer(lawyerId);
+            return ResponseEntity.status(HttpStatus.OK).build();
+            // also we can make it like this
+            //return ResponseEntity.ok().build();
+        }else {
+            //or like this
+            //return ResponseEntity.notFound().build();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
     }
 
     @PutMapping(path = "/{id}")

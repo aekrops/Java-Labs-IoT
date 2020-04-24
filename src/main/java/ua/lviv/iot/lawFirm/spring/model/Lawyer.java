@@ -1,27 +1,43 @@
-package ua.lviv.iot.lawFirm.model;
+package ua.lviv.iot.lawFirm.spring.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import ua.lviv.iot.lawFirm.spring.manager.LawFirmManager;
+
+import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import ua.lviv.iot.lawFirm.manager.LawFirmManager;
-
+@Entity
 public class Lawyer extends AbstractServices {
 
     private static AtomicInteger numbersOfLawyers = new AtomicInteger(0);
+    //many to one
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "firm_id")
+    @JsonIgnoreProperties("lawyers")
+    private LawyerFirm lawyerFirm;
 
-    private int id = 0;
+    @JsonIgnoreProperties("lawyers")
+    @ManyToMany(mappedBy = "lawyers")
+    private Set<Customer> customers;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 
     private String name;
 
     private double pricePerHourInUAH;
 
+    @Transient
     protected List<Services> services = new LinkedList<>();
 
     private int age;
     private int numberOfServices = 3;
     private int lengthOfName;
-
+    @Transient
     LawFirmManager manager = new LawFirmManager();
 
     public Lawyer(String name, double pricePerHourInUAH, int age, boolean isCollectingEvidence, boolean isAdvice) {
@@ -57,6 +73,26 @@ public class Lawyer extends AbstractServices {
         manager.addLawyers(this);
     }
 
+    public LawyerFirm getLawyerFirm() {
+        return lawyerFirm;
+    }
+
+    public void setLawyerFirm(LawyerFirm lawyerFirm) {
+        this.lawyerFirm = lawyerFirm;
+    }
+
+    public Set<Customer> getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(Set<Customer> customers) {
+        this.customers = customers;
+    }
+
+    public void setNumberOfServices(int numberOfServices) {
+        this.numberOfServices = numberOfServices;
+    }
+
     public int getLengthOfName() {
         return lengthOfName;
     }
@@ -74,9 +110,10 @@ public class Lawyer extends AbstractServices {
     }
 
     public Lawyer() {
-        numbersOfLawyers.incrementAndGet();
-        id = numbersOfLawyers.get();
+//        numbersOfLawyers.incrementAndGet();
+//        id = numbersOfLawyers.get();
     }
+
 
     public String getHeaders() {
         return "name" + "," + "price per hour in hryvna" + "," + "age" + "," + super.getHeaders();
