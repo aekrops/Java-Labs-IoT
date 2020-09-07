@@ -1,4 +1,3 @@
-# java-labs-IoT
  Law Firm
  - lab 3 - finding method
  - lab 4 - sort methods
