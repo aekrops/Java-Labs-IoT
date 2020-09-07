@@ -7,5 +7,5 @@
  - lab 8 - sql
  - lab 9 - sql
  
- #Maven
+ # Maven
  mvn -B archetype:generate -DgroupId=ua.lviv.iot -DartifactId=Java-Labs-IoT -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4
